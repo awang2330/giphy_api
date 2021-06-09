@@ -1,0 +1,49 @@
+body {
+  background-color: #008080;
+  color: #fff;
+}
+
+header {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 40px;
+  text-align: center;
+  font-weight: 600;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
+
+form label {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 18px;
+  color: rgb(194, 236, 241);
+  font-weight: 600;
+}
+
+#search-results {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.gif-image {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.gif-image img {
+  width: 100%;
+}
+
+.more-gifs {
+  display: flex;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
