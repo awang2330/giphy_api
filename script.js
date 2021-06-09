@@ -2,7 +2,7 @@
 /* Global Constants */
 const apiKey = "UMDTsYVLpmun2BsaDRl52E6Dnx5weP3t";
 const limit = 12;
-const rating = "pg-13";
+const rating = "";
 
 var offset = 0;
 var pages = 0;
@@ -17,8 +17,6 @@ moreButton.addEventListener("click", showMoreGifs)
 
 async function getResults(event) {
   event.preventDefault();
-  console.log(event)
-  console.log(event.target.gifs)
   var gifInput
 
   // check if search value is already extracted using page number
@@ -30,10 +28,9 @@ async function getResults(event) {
     gifInput = searchValue;
   }
   
-  
   const apiURL = "http://api.giphy.com/v1/gifs/search?" 
-  + "api_key=" + apiKey + "&limit=" + limit + "&offset" + offset + "&rating=" + rating + "&q=" + gifInput;
-   
+  + "api_key=" + apiKey + "&limit=" + limit + "&offset=" + offset + "&rating=" + rating + "&q=" + gifInput;
+
   const response  = await fetch(apiURL);
   const responseData = await response.json();
 
@@ -42,7 +39,6 @@ async function getResults(event) {
 
 /** Display the GIF grid by adding each element to searchResults
  * Display the show more button
- * Update the offset
  */
 function displayGIFGrid(gifResults) {
   gifResults.data.forEach(element => {
@@ -50,8 +46,6 @@ function displayGIFGrid(gifResults) {
   });
 
   moreButton.classList.remove("hidden")
-
-  offset = pages * limit
 }
 
 /** Display a single GIF */
@@ -63,7 +57,15 @@ function displayGIF(gifData) {
   `
 }
 
+/** Increment pages if user clicks show more
+ * Update offset to pass into api
+*/
 function showMoreGifs(event) {
   pages++
+  offset = pages * limit
   getResults(event)
+}
+
+window.onload = () => {
+  
 }
